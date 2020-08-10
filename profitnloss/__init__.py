@@ -67,9 +67,9 @@ class Strategy:
             roots.append(round(-c / m, 2))
         return roots
     def max_loss(self):
-        return sorted(self.payoffs(self._interesting_spots()))[0]
+        return min(self.payoffs(self._interesting_spots()))
     def max_gain(self):
-        return sorted(self.payoffs(self._interesting_spots()))[-1]
+        return max(self.payoffs(self._interesting_spots()))
     def plot(self):
         strikes = self.strikes()
         x = np.array([int(strikes[0] * .9)] + strikes + [int(strikes[-1] * 1.1)])
